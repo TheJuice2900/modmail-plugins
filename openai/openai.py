@@ -10,7 +10,7 @@ class OpenAIResponder(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.api_key = Config.OPENAI_API_KEY
-        logger.info("OpenAIResponder plugin initialized with API Key %s", self.api_key)
+        logger.info("OpenAI initialized with API Key %s", self.api_key)
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -30,7 +30,7 @@ class OpenAIResponder(commands.Cog):
             "Content-Type": "application/json",
         }
         data = {
-            "model": "text-davinci-003",
+            "model": "gpt-4o-mini",
             "prompt": prompt,
             "max_tokens": 150,
         }
